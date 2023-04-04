@@ -43,4 +43,9 @@ If you want to use a Burp Suite certificate with the `--proxy` option, you may n
 OneUrl:
 
 
-![One url](Gifs/oneurl.gif "OneURL")
+![One url](Gifs/oneurl.gif)
+
+
+LoadingUrlsFromlist:
+
+![loadfile](Gifs/loadfile.gif)
