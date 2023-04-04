@@ -15,6 +15,11 @@ The Main Function of this Tool is scanning Urls for SQLI but it has  some helpfu
 1. Clone this repository using Git:https://github.com/TheNewAttacker64/TheAttackerScanner/
 2. chmod +x install.sh && sudo ./install.sh
 
+### Simple commands
+ 
+- 'theattacker --url http://site.com/example.php?id=1'
+- 'theattacker urlslist.txt'
+
 ### Advanced usage
 
 The tool supports several advanced options to customize the scan:
