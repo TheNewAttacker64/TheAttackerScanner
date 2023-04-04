@@ -36,3 +36,7 @@ To see the full list of options, use the `--help` option:
 ## Burp Suite Certificate Conversion
 
 If you want to use a Burp Suite certificate with the `--proxy` option, you may need to convert the certificate to a format supported by this tool (PEM format). To do this, use the `--convert-burpcert` option:
+
+### Examples
+
+![One url](Gifs/oneurl.gif)
