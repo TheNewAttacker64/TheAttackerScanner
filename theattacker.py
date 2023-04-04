@@ -24,7 +24,7 @@ def convert_cert(burpcert, to_pem=True):
         if platform.system() == 'Windows':
             os.system("certutil -encode "+burpcert+" burp.pem")
         elif platform.system() == 'Linux':
-            os.system("openssl x509 -inform der "+burpcert+" -out burp.pem")
+            os.system("openssl x509 -inform der -in "+burpcert+" -out burp.pem")
     else:
         print("Conversion to PEM format not requested.")
 def generate_user_agent():
