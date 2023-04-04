@@ -39,4 +39,4 @@ If you want to use a Burp Suite certificate with the `--proxy` option, you may n
 
 ### Examples
 
-![One url](Gifs/oneurl.gif)
+![One url](Gifs/oneurl.gif "OneURL")
