@@ -49,3 +49,12 @@ OneUrl:
 LoadingUrlsFromlist:
 
 ![loadfile](Gifs/loadfile.gif)
+
+
+UsingWithBurp:
+
+
+![burp](Gifs/burptest.gif)
+
+
+
