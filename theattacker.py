@@ -1,3 +1,4 @@
+import datetime
 import argparse
 import requests
 import fake_useragent
@@ -7,6 +8,10 @@ import time
 import os
 import platform
 import easygui
+import os.path
+def create_Vuln_file():
+    with open("SqliVuln.txt", "w") as file:
+        pass
 def banner():
   return  """
   
@@ -24,7 +29,7 @@ def convert_cert(burpcert, to_pem=True):
         if platform.system() == 'Windows':
             os.system("certutil -encode "+burpcert+" burp.pem")
         elif platform.system() == 'Linux':
-            os.system("openssl x509 -inform der -in "+burpcert+" -out burp.pem")
+            os.system("openssl x509 -inform der "+burpcert+" -out burp.pem")
     else:
         print("Conversion to PEM format not requested.")
 def generate_user_agent():
@@ -71,13 +76,21 @@ def test_urls(urls, payload, use_cookies, num_threads, proxies, generate_user_ag
     while not result_queue.empty():
         url, payload = result_queue.get()
         print(f"[+] SQL injection vulnerability found at {url} (payload={payload})")
+        now = datetime.datetime.now()
+
+        date_time_string = now.strftime("%Y-%m-%d_%H-%M-%S")
+        with open("SqliVuln.txt",'a') as vuln:
+            vuln.write(f"[+] SQL injection vulnerability found at {url} (payload={payload}) Date:"+date_time_string+"\n")
 
     elapsed_time = time.time() - start_time
     print(f"Scan completed in {elapsed_time:.2f} seconds.")
+    print("All vuln Targets Saved at SqliVuln.txt")
 
 
 if __name__ == '__main__':
     print(banner())
+    if os.path.exists("SqliVuln.txt") == False:
+        create_Vuln_file()
     parser = argparse.ArgumentParser(description='Test a list of URLs for SQL injection vulnerabilities')
     parser.add_argument("--convert-burpcert",action='store_true',help="Convert Burp Cert to a Format suppoerted for this script")
     parser.add_argument('--url', help='Single URL to test for SQL injection vulnerabilities')
